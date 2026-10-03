@@ -1,13 +1,14 @@
-//*=========== togle icon novbar =============*/
-let menuIcon = document.querySelectorAll('#menu-icon');
-let navbar = document.querySelectorAll('.navbar');
+/* ================= TOGGLE ICON NAVBAR ================= */
+// Menggunakan querySelector karena elemen hanya ada satu
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = () => {
-  menuIcon.classList.toggle('bx-x');
-  navbar.classList.toggle('active');
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
 };
 
-//*=========== scroll sections active link =============*/
+/* ================= SCROLL SECTIONS ACTIVE LINK ================= */
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
@@ -21,23 +22,26 @@ window.onscroll = () => {
         if(top >= offset && top < offset + height) {
             navLinks.forEach(links => {
                 links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                let targetLink = document.querySelector('header nav a[href*=' + id + ']');
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                }
             });
         }
     });
 
-  //*==================== sticky navbar ===================*/
-let header = document.querySelector('header');
+    /* ================= STICKY NAVBAR ================= */
+    let header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 100);
 
-header.classList.toggle('sticky', window.scrollY > 100);
-
-  menuIcon.classList.remove('bx-x');
-  navbar.classList.remove('active');
-  
-
+    /* ================= HAPUS TOGGLE SAAT SCROLL ================= */
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
 };
 
+/* ================= SCROLL REVEAL ================= */
 ScrollReveal({
+    // reset: true,
     distance: '80px',
     duration: 2000,
     delay: 200
@@ -48,6 +52,7 @@ ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact 
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
+/* ================= TYPED JS ================= */
 const typed = new Typed('.multiple-text', {
     strings: ['Siswi SMKS Krian 1 Sidoarjo', 'Siswa X RPL 2'],
     typeSpeed: 100,
