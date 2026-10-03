@@ -26,13 +26,15 @@ html {
 body {
   background: var(--bg-color);
   color: var(--text-color);
+  overflow-x: hidden;
 }
 
 section {
   min-height: 100vh;
-  padding: 10rem 9% 2rem;
+  padding: 10rem 9% 3rem;
 }
 
+/* ================= HEADER & NAVBAR ================= */
 .header {
   position: fixed;
   top: 0;
@@ -44,6 +46,7 @@ section {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  transition: .3s;
 }
 
 .header.sticky {
@@ -73,9 +76,10 @@ section {
   font-size: 3.6rem;
   color: var(--text-color);
   display: none;
+  cursor: pointer;
 }
 
-/* HOME SECTION & BULATAN HERO */
+/* ================= HOME SECTION ================= */
 .home {
   display: flex;
   justify-content: space-between;
@@ -84,7 +88,7 @@ section {
 }
 
 .home-content {
-  max-width: 60rem;
+  flex: 1;
 }
 
 .home-content h3 {
@@ -101,13 +105,14 @@ span {
 }
 
 .home-content h1 {
-  font-size: 5.6rem;
+  font-size: 5.4rem;
   font-weight: 700;
   line-height: 1.3;
 }
 
 .home-content p {
   font-size: 1.6rem;
+  line-height: 1.6;
 }
 
 .social-media a {
@@ -128,15 +133,15 @@ span {
 .social-media a:hover {
   background: var(--main-color);
   color: var(--second-bg-color);
-  box-shadow: 0 0 1rem var(--main-color);
+  box-shadow: 0 0 1.5rem var(--main-color);
 }
 
 .btn {
   display: inline-block;
-  padding: 1rem 2.8rem;
+  padding: 1.2rem 2.8rem;
   background: var(--main-color);
   border-radius: 4rem;
-  box-shadow: 0 0 5rem var(--main-color);
+  box-shadow: 0 0 1.5rem var(--main-color);
   font-size: 1.6rem;
   color: var(--second-bg-color);
   letter-spacing: .1rem;
@@ -148,7 +153,7 @@ span {
   box-shadow: none;
 }
 
-/* FOTO HERO LINGKARAN DENGAN BORDER & GLOW */
+/* FOTO HERO BULAT */
 .home-img {
   display: flex;
   justify-content: center;
@@ -156,12 +161,12 @@ span {
 }
 
 .home-img img {
-  width: 32vw;
-  height: 32vw;
+  width: 30vw;
+  height: 30vw;
   max-width: 380px;
   max-height: 380px;
-  min-width: 260px;
-  min-height: 260px;
+  min-width: 250px;
+  min-height: 250px;
   border-radius: 50%;
   object-fit: cover;
   border: .4rem solid var(--main-color);
@@ -174,28 +179,48 @@ span {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-2.4rem);
+    transform: translateY(-2rem);
   }
   100% {
     transform: translateY(0);
   }
-} 
+}
 
+/* ================= ABOUT SECTION ================= */
 .about {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
   background: var(--second-bg-color);
 }
 
+.about-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .about-img img {
-  width: 35vw;
+  width: 28vw;
+  height: 28vw;
+  max-width: 360px;
+  max-height: 360px;
+  min-width: 240px;
+  min-height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: .4rem solid var(--main-color);
+  box-shadow: 0 0 2rem var(--main-color);
 }
 
 .heading {
   text-align: center;
   font-size: 4.5rem;
+}
+
+.about-content {
+  flex: 1;
 }
 
 .about-content h2 {
@@ -205,11 +230,19 @@ span {
 
 .about-content h3 {
   font-size: 2.6rem;
+  margin-top: .8rem;
 }
 
 .about-content p {
   font-size: 1.6rem;
-  margin: 2rem 0 3rem;
+  margin: 1.5rem 0 3rem;
+  line-height: 1.6;
+}
+
+/* ================= SERVICES SECTION ================= */
+.services {
+  min-height: auto;
+  padding-bottom: 7rem;
 }
 
 .services h2 {
@@ -217,15 +250,12 @@ span {
 }
 
 .services-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 2.5rem;
 }
 
 .services-container .services-box {
-  flex: 1 1 30rem;
   background: var(--second-bg-color);
   padding: 3rem 2rem 4rem;
   border-radius: 2rem;
@@ -236,25 +266,30 @@ span {
 
 .services-container .services-box:hover {
   border-color: var(--main-color);
-  transform: scale(1.02);
+  transform: translateY(-.5rem);
 }
 
 .services-box i {
-  font-size: 7rem;
+  font-size: 6.5rem;
   color: var(--main-color);
 }
 
 .services-box h3 {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
+  margin: 1.5rem 0 1rem;
 }
 
 .services-box p {
-  font-size: 1.6rem;
-  margin: 1rem 0 3rem;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
 }
 
+/* ================= PORTFOLIO SECTION ================= */
 .portfolio {
   background: var(--second-bg-color);
+  min-height: auto;
+  padding-bottom: 7rem;
 }
 
 .portfolio h2 {
@@ -264,7 +299,6 @@ span {
 .portfolio-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  align-items: center;
   gap: 2.5rem;
 }
 
@@ -274,11 +308,14 @@ span {
   box-shadow: 0 0 1rem var(--bg-color);
   overflow: hidden;
   display: flex;
+  aspect-ratio: 16 / 11;
 }
 
 .portfolio-box img {
   width: 100%;
-  transition: .5s ease;  
+  height: 100%;
+  object-fit: cover;
+  transition: .5s ease;
 }
 
 .portfolio-box:hover img {
@@ -291,14 +328,14 @@ span {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), var(--main-color));
+  background: linear-gradient(rgba(0, 0, 0, .2), var(--main-color));
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 0 4rem;
-  transform: translateY(120%);
+  padding: 0 2.5rem;
+  transform: translateY(100%);
   transition: .5s ease;
 }
 
@@ -307,20 +344,23 @@ span {
 }
 
 .portfolio-layer h4 {
-  font-size: 3rem;
+  font-size: 2.4rem;
+  color: var(--second-bg-color);
 }
 
 .portfolio-layer p {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin: .3rem 0 1rem;
+  color: var(--second-bg-color);
+  font-weight: 500;
 }
 
 .portfolio-layer a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 5rem;
-  height: 5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   background: var(--text-color);
   border-radius: 50%;
 }
@@ -328,6 +368,12 @@ span {
 .portfolio-layer a i {
   font-size: 2rem;
   color: var(--second-bg-color);
+}
+
+/* ================= CONTACT SECTION ================= */
+.contact {
+  min-height: auto;
+  padding-bottom: 7rem;
 }
 
 .contact h2 {
@@ -338,12 +384,12 @@ span {
   max-width: 70rem;
   margin: 1rem auto;
   text-align: center;
-  margin-bottom: 3rem;
 }
 
 .contact form .input-box {
   display: flex;
   justify-content: space-between;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -359,11 +405,11 @@ span {
 }
 
 .contact form .input-box input {
-  width: 49%;
+  flex: 1 1 calc(50% - 1.5rem);
 }
 
 .contact form textarea {
-  resize: none;
+  resize: vertical;
 }
 
 .contact form .btn {
@@ -371,6 +417,7 @@ span {
   cursor: pointer;
 }
 
+/* ================= FOOTER ================= */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -381,7 +428,7 @@ span {
 }
 
 .footer-text p {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 .footer-iconTop a {
@@ -404,40 +451,35 @@ span {
 }
 
 
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1200px) {
-  html {
-    font-size: 55%;
-  }
-}
+/* ========================================================
+   RESPONSIVE BREAKPOINTS (TABLET & HP)
+   ======================================================== */
 
-@media (max-width: 991px) {
+/* Tablet Landscape & Layar Sedang (max-width: 1024px) */
+@media (max-width: 1024px) {
+  html {
+    font-size: 58%;
+  }
+
   .header {
-    padding: 2rem 3%;
+    padding: 2rem 5%;
   }
 
   section {
-    padding: 10rem 3% 2rem;
-  }
-
-  .services {
-    padding-bottom: 7rem;
-  }
-
-  .portfolio {
-    padding-bottom: 7rem;
-  }
-
-  .contact {
-    min-height: auto;
+    padding: 10rem 5% 3rem;
   }
 
   .footer {
-    padding: 2rem 3%;
+    padding: 2rem 5%;
+  }
+
+  .portfolio-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet Portrait & iPad (max-width: 868px) */
+@media (max-width: 868px) {
   #menu-icon {
     display: block;
   }
@@ -447,10 +489,10 @@ span {
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 1rem 3%;
+    padding: 1.5rem 5%;
     background: var(--bg-color);
-    border-top: .1rem solid rgba(0, 0, 0, .2);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    border-top: .1rem solid rgba(255, 255, 255, .1);
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, .4);
     display: none;
   }
 
@@ -460,86 +502,111 @@ span {
 
   .navbar a {
     display: block;
-    font-size: 2rem;
-    margin: 3rem 0;
+    font-size: 1.9rem;
+    margin: 2.2rem 0;
+    text-align: left;
   }
 
+  /* Susunan Hero: Foto di atas / teks di bawah */
   .home {
     flex-direction: column-reverse;
-  }
-
-  .home-content h3 {
-    font-size: 2.6rem;
-  }
-
-  .home-content h1 {
-    font-size: 5rem;
+    justify-content: center;
+    text-align: center;
+    gap: 3rem;
   }
 
   .home-img img {
-    width: 55vw;
-    height: 55vw;
-    margin-top: 4rem;
+    width: 250px;
+    height: 250px;
+    min-width: unset;
+    min-height: unset;
   }
 
+  .social-media a {
+    margin: 2rem .8rem;
+  }
+
+  /* Susunan About: Tengah dan foto proporsional */
   .about {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
   }
 
-  .about img {
-    width: 70vw;
-    margin-top: 4rem;
+  .about-content h2 {
+    text-align: center;
   }
 
-  .services h2 {
-    margin-bottom: 3rem;
-  }
-
-  .portfolio h2 {
-    margin-bottom: 3rem;
-  }
-
-  .portfolio-container {
-    grid-template-columns: repeat(2, 1fr);
+  .about-img img {
+    width: 240px;
+    height: 240px;
+    min-width: unset;
+    min-height: unset;
   }
 }
 
-@media (max-width: 617px) {
+/* HP / Layar Smartphone (max-width: 600px) */
+@media (max-width: 600px) {
+  html {
+    font-size: 52%;
+  }
+
+  .header {
+    padding: 1.8rem 5%;
+  }
+
+  section {
+    padding: 8.5rem 5% 3rem;
+  }
+
+  .home-content h1 {
+    font-size: 4rem;
+  }
+
+  .home-content h3 {
+    font-size: 2.4rem;
+  }
+
+  .home-img img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-img img {
+    width: 200px;
+    height: 200px;
+  }
+
   .portfolio-container {
     grid-template-columns: 1fr;
   }
 
   .contact form .input-box {
     flex-direction: column;
+    gap: 0;
   }
 
   .contact form .input-box input {
     width: 100%;
-  }
-}
-
-@media (max-width: 450px) {
-  html {
-    font-size: 50%;
-  }
-}
-
-@media (max-width: 365px) {
-  .home-img img {
-    width: 70vw;
-    height: 70vw;
-  }
-
-  .about-img img {
-    width: 90vw;
+    flex: 1 1 100%;
   }
 
   .footer {
     flex-direction: column-reverse;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+/* HP Kecil (max-width: 380px) */
+@media (max-width: 380px) {
+  .home-img img,
+  .about-img img {
+    width: 170px;
+    height: 170px;
   }
 
-  .footer p {
-    text-align: center;
-    margin-top: 2rem;
+  .home-content h1 {
+    font-size: 3.4rem;
   }
 }
